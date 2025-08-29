@@ -1,5 +1,6 @@
 import streamlit as st
 
+# Fungsi Kalkulator
 def kalkulator(operand1, operand2, operator):
     if operator == '+':
         return operand1 + operand2
@@ -12,6 +13,7 @@ def kalkulator(operand1, operand2, operator):
             return "Error: Pembagi tidak boleh nol"
         return operand1 / operand2
 
+# Fungsi Konversi Suhu
 def konversi_suhu(suhu, dari, ke):
     if dari == 'Celsius':
         if ke == 'Fahrenheit':
@@ -29,6 +31,7 @@ def konversi_suhu(suhu, dari, ke):
         elif ke == 'Fahrenheit':
             return (suhu - 273.15) * 9/5 + 32
 
+# Fungsi Deret Fibonacci
 def fibonacci(n):
     if n <= 0:
         return []
@@ -43,6 +46,7 @@ st.title("Aplikasi Multifungsi: Kalkulator, Konversi Suhu, dan Deret Fibonacci")
 
 menu = st.sidebar.selectbox("Pilih Fitur", ["Kalkulator", "Konversi Suhu", "Deret Fibonacci"])
 
+# Menu Kalkulator
 if menu == "Kalkulator":
     st.header("Kalkulator Sederhana")
     operand1 = st.number_input("Masukkan Operand 1", value=0)
@@ -52,6 +56,7 @@ if menu == "Kalkulator":
         hasil = kalkulator(operand1, operand2, operator)
         st.success(f"Hasil: {hasil}")
 
+# Menu Konversi Suhu
 elif menu == "Konversi Suhu":
     st.header("Konversi Suhu")
     suhu = st.number_input("Masukkan Suhu", value=0.0)
@@ -64,6 +69,7 @@ elif menu == "Konversi Suhu":
             hasil = konversi_suhu(suhu, dari, ke)
         st.success(f"Hasil: {hasil} {ke}")
 
+# Menu Deret Fibonacci
 elif menu == "Deret Fibonacci":
     st.header("Deret Fibonacci")
     n = st.number_input("Masukkan jumlah nilai Fibonacci", min_value=1, value=10)
